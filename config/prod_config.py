@@ -10,26 +10,32 @@ class ProdConfig(CommonConfig):
     BASE_URL2 = 'http://192.168.1.1:8002'
     BASE_URL3 = 'http://192.168.1.1:8003'
 
-    MYSQL_1 = {
-        'MYSQL_HOST': "192.168.1.1",
-        'MYSQL_USER': "root",
-        'MYSQL_PASSWORD': "123456",
-        'MYSQL_PORT': 3306,
-        'MYSQL_DATABASE': "xxx1"  # 连接数据的库名
+    TestHtbms = {
+        'host': "108.174.60.167",
+        'user': "root",
+        'password': "hthl#2022",
+        'port': 13306,
+        'db': "test_htbms"  # 连接数据的库名
     }
 
-    MYSQL_2 = {
-        'MYSQL_HOST': "192.168.1.1",
-        'MYSQL_USER': "root",
-        'MYSQL_PASSWORD': "123456",
-        'MYSQL_PORT': 3306,
-        'MYSQL_DATABASE': "xxx2"  # 连接数据的库名
+    SmartAccountUat = {
+        'host': "108.174.60.167",
+        'user': "root",
+        'password': "hthl#2022",
+        'port': 13306,
+        'db': "smart_account_uat"  # 连接数据的库名
     }
 
-    MYSQL_3 = {
-        'MYSQL_HOST': "192.168.1.1",
-        'MYSQL_USER': "root",
-        'MYSQL_PASSWORD': "123456",
-        'MYSQL_PORT': 3306,
-        'MYSQL_DATABASE': "xxx3"  # 连接数据的库名
+    TestQfzl = {
+        'host': "108.174.60.167",
+        'user': "root",
+        'password': "hthl#2022",
+        'port': 13306,
+        'db': "test_qfzl"  # 连接数据的库名
     }
+
+
+if __name__ == '__main__':
+    print(ProdConfig.TestHtbms)
+    print(ProdConfig.SmartAccountUat)
+    print(ProdConfig.TestQfzl)
