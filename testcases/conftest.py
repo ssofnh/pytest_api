@@ -2,10 +2,10 @@ import pytest
 import os
 import allure
 from api.user import user
-from common.mysql_operate import db
+# from common.mysql_operate import db
 from common.read_data import data
 from common.logger import logger
-
+db = None
 BASE_PATH = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 
 
