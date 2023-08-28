@@ -1,8 +1,6 @@
 # pytestDemo
 
-本项目实现接口自动化的技术选型：**Python+Requests+Pytest+YAML+Allure** ，主要是针对本人的一个接口项目来开展的，通过 Python+Requests 来发送和处理HTTP协议的请求接口，使用 Pytest 作为测试执行器，使用 YAML 来管理测试数据，使用 Allure 来生成测试报告。
-
->相关接口项目：[使用 Python+Flask+MySQL+Redis 开发简单接口实例](https://github.com/wintests/flaskDemo)
+本项目实现接口自动化的技术选型：**Python+Requests+Pytest+YAML+Allure** ，通过 Python+Requests 来发送和处理HTTP协议的请求接口，使用 Pytest 作为测试执行器，使用 YAML 来管理测试数据，使用 Allure 来生成测试报告。
 
 ## 项目说明
 
@@ -26,19 +24,32 @@ pip3 install -r requirements.txt
 pytest
 ```
 
-**注意**：因为我这里是针对自己的接口项目进行测试，如果想直接执行我的测试用例来查看效果，需要提前部署上面提到的 [flaskDemo](https://github.com/wintests/flaskDemo) 接口项目。
 
 ## 项目结构
 
 - api ====>> 接口封装层，如封装HTTP接口为Python接口
 - common ====>> 各种工具类
-- core ====>> requests请求方法封装、关键字返回结果类
 - config ====>> 配置文件
+  - common_config ====>> 多套环境的通用配置
+  - dev_config ====>> 测试环境的配置
+  - uat_config ====>> 联调环境的配置
+  - prod_config ====>> 生成环境的配置
+  - file_path_config ====>> 文件路径
+- core ====>> requests请求方法封装、关键字返回结果类
 - data ====>> 测试数据文件管理
+- log ====>> 日志
 - operation ====>> 关键字封装层，如把多个Python接口封装为关键字
-- pytest.ini ====>> pytest配置文件
-- requirements.txt ====>> 相关依赖包文件
+- report ====>> 测试报告
 - testcases ====>> 测试用例
+- utils ====>> 自定义方法
+- conftest ====>> pytest的配置
+  - EnvConfig  ====>> 读取指定的测试/运行环境配置
+  - pytest_addoption  ====>> 添加命令行指定运行哪一个测试/运行环境
+  - db  ====>> 初始化数据库连接
+  - Access_token  ====>> 发送接口获取token,并且写入到/config/access_token目录下，接口读取使用
+- pytest.ini ====>> pytest配置文件
+  - “addopts =  --env=dev” ====>> 指定运行哪个环境，命令行的优先级大于pytest.ini文件，pytest.ini文件大于/conftest.py/EnvConfig
+- requirements.txt ====>> 相关依赖包文件
 
 ## 关键字封装说明
 
