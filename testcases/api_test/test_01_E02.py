@@ -69,7 +69,7 @@ def test_A01(A01):
             'connectAddress': '123'  # 企业联系人联系地址;
         },
         'publicAccountNo': '15000100717139',  # 企业对公账户账号;
-        'publicAccountSettleUnitNo': '307584007998',  # 企业对公账户清算联行号;
+        'publicAccountSettleUnitNo': '307584007988',  # 企业对公账户清算联行号;
         # 增信材料列表;
         'creditMaterials': [
             # {
