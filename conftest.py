@@ -13,7 +13,7 @@ from utils.ReadWriteFile_Helper import ReadWriteFile
 
 @pytest.fixture(scope="session", autouse=True)
 def EnvConfig(request):
-    '''读取环境切换的配置'''
+    '''读取环境配置'''
     env = request.config.getoption("--env")
     if env == "dev":
         # print("测试环境")
@@ -44,8 +44,9 @@ def db(EnvConfig):
 @pytest.fixture(scope="session", autouse=True)
 def Access_token(EnvConfig):
     '''初始化token'''
+    # 将token写入文件
     auto_setTokens(auto_setToken=EnvConfig.auto_setToken).get_token()
-    # 读取token赋值给headers
+    # 读取token赋值给变量
     EnvConfig.hthl_sys_token = ReadWriteFile(ACCESS_TOKEN_PATH, 'hthl_sys_token.md').read_file()
     EnvConfig.hthl_sys_api_token = ReadWriteFile(ACCESS_TOKEN_PATH, 'hthl_sys_api_token.md').read_file()
     EnvConfig.account_book_token = ReadWriteFile(ACCESS_TOKEN_PATH, 'account_book_token.md').read_file()

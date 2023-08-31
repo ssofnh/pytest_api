@@ -17,15 +17,16 @@ class Logger():
         self.formater = logging.Formatter(
             '[%(asctime)s][%(filename)s %(lineno)d][%(levelname)s]: %(message)s')
 
+        # 写入文件的配置
         self.filelogger = logging.FileHandler(self.logname, mode='a', encoding="UTF-8")
-        self.console = logging.StreamHandler()
-        self.console.setLevel(logging.DEBUG)
         self.filelogger.setLevel(logging.DEBUG)
         self.filelogger.setFormatter(self.formater)
-        self.console.setFormatter(self.formater)
         self.logger.addHandler(self.filelogger)
-        self.logger.addHandler(self.console)
-
+        # 控制台打印的配置
+        # self.console = logging.StreamHandler()
+        # self.console.setLevel(logging.DEBUG)
+        # self.console.setFormatter(self.formater)
+        # self.logger.addHandler(self.console)
 
 logger = Logger().logger
 

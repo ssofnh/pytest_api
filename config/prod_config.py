@@ -10,6 +10,8 @@ class ProdConfig(CommonConfig):
     BASE_URL2 = 'http://192.168.1.1:8002'
     BASE_URL3 = 'http://192.168.1.1:8003'
 
+    x_platform_code = '51320000050261XXXXSS'
+
     TestHtbms = {
         'host': "108.174.60.167",
         'user': "root",
